@@ -87,6 +87,7 @@
     };
     var $menu;
     var $activeHeaderColumn;
+    var mouseLeaveTimeout = null;
 
 
     function init(grid) {
@@ -109,6 +110,28 @@
       $(document.body).unbind("mousedown", handleBodyMouseDown);
     }
 
+    function mouseLeaveTimeoutHandler(e) {
+      if ($menu && !$.contains($menu[0], $(document.body))) {
+        hideMenu();
+      }
+    }
+
+    function removeTimeout(){
+      if(mouseLeaveTimeout) {
+        clearTimeout(mouseLeaveTimeout);
+        mouseLeaveTimeout = null;
+      }
+    }
+
+    function handleMouseLeave(e){
+      removeTimeout();
+      mouseLeaveTimeout = setTimeout(mouseLeaveTimeoutHandler, 2000);
+    }
+
+    function handleMouseEnter(e){
+      removeTimeout();
+    }
+
 
     function handleBodyMouseDown(e) {
       if ($menu && $menu[0] != e.target && !$.contains($menu[0], e.target)) {
@@ -118,6 +141,7 @@
 
 
     function hideMenu() {
+      clearTimeout();
       if ($menu) {
         $menu.remove();
         $menu = null;
@@ -168,6 +192,8 @@
       var $menuButton = $(this);
       var menu = $menuButton.data("menu");
       var columnDef = $menuButton.data("column");
+
+      removeTimeout();
 
       // Let the user modify the menu or cancel altogether,
       // or provide alternative menu implementation.
@@ -233,6 +259,12 @@
       $activeHeaderColumn = $menuButton.closest(".slick-header-column");
       $activeHeaderColumn
         .addClass("slick-header-column-active");
+
+      $menu.bind("mouseleave", handleMouseLeave);
+      $menu.bind("mouseenter", handleMouseEnter);
+      // the icon that triggers the menu opening is not a part of the menu
+      // so thecnically the cursor is outside the menu
+      mouseLeaveTimeout = setTimeout(mouseLeaveTimeoutHandler, 2000);
 
       // Stop propagation so that it doesn't register as a header click event.
       e.preventDefault();
