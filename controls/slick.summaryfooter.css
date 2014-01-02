@@ -1,0 +1,77 @@
+#grid-footer-container{
+  width: auto;
+  overflow: hidden;
+  position:relative;
+  top:-26px;
+  border-right: 1px solid #d3d3d3;
+}
+
+#grid-footer{
+
+  height: 32px !important;
+}
+
+
+.slick-footer {
+  width:10000px;
+  position: relative;
+  border:0;
+}
+
+.slick-footer-columns {
+  position:relative;
+}
+
+.slick-summaryfooter {
+  width: 100%;
+  height: 35px;
+
+  border-top: 0;
+  background: url('../images/header-columns-bg.gif') repeat-x center bottom;
+  vertical-align: middle;
+}
+
+.slick-summaryfooter-column {
+  background: url('../images/header-columns-bg.gif') repeat-x center bottom;
+  border-right: 1px solid silver;
+  display: inline-block;
+  height:18px;
+  padding:7px 10px 3px 9px;
+}
+
+.slick-column-name b {
+  font-size: 1.1em;
+}
+
+.slick-summaryfooter .slick-summaryfooter-status {
+  display: inline-block;
+  padding: 6px;
+}
+
+.slick-summaryfooter .ui-icon-container {
+  display: inline-block;
+  margin: 2px;
+  border-color: gray;
+}
+
+.slick-summaryfooter .slick-summaryfooter-nav {
+  display: inline-block;
+  float: left;
+  padding: 2px;
+}
+
+.slick-summaryfooter .slick-summaryfooter-settings {
+  display: block;
+  float: right;
+  padding: 2px;
+}
+
+.slick-summaryfooter .slick-summaryfooter-settings * {
+  vertical-align: middle;
+}
+
+.slick-summaryfooter .slick-summaryfooter-settings a {
+  padding: 2px;
+  text-decoration: underline;
+  cursor: pointer;
+}
