@@ -480,6 +480,22 @@ if (typeof Slick === "undefined") {
             }
         }
 
+        function getUID() {
+          return uid;
+        }
+
+        function getScrollbarDimensions() {
+          return scrollbarDimensions;
+        }
+        function getHeaderElements() {
+          return headerElements;
+        }
+
+        function getHeaderColumnWidthDiff()
+        {
+          return headerColumnWidthDiff;
+        }
+
         function getSelectionModel() {
             return selectionModel;
         }
@@ -4149,6 +4165,14 @@ if (typeof Slick === "undefined") {
             "setSelectionModel": setSelectionModel,
             "getSelectedRows": getSelectedRows,
             "setSelectedRows": setSelectedRows,
+
+            "getUID": getUID,
+            "getHeaderElements": getHeaderElements,
+            "getHeaderColumnWidthDiff": getHeaderColumnWidthDiff,
+            "getScrollbarDimensions": getScrollbarDimensions,
+            "getHeadersWidth": getHeadersWidth,
+            "getCanvasWidth": getCanvasWidth,
+
 
             "render": render,
             "invalidate": invalidate,
